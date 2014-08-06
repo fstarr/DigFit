@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "fir_float.h"
+#include "fir/fir_float.h"
 
 #define FILTER_LEN 4
 #define SAMPLES 20
