@@ -8,6 +8,12 @@
  * Description: Apply IIR filter to input data values and store them in
  *              output array.
  *
+ *              y[n] = sum(b[k]*x[n-k], k=0..N) - sum(a[k]*y[n-k], k=1..M)
+ *
+ *              x[] = intput samples, y[] = output samples,
+ *              b[] = nomCoeffs, a[] = denomCoeffs, N = nomFilterLen,
+ *              M = denomFilterLen
+ *
  * Params:      denomCoeffs    - pointer to array holding IIR denominator
  *                               coefficients
  *              nomCoeffs      - pointer to array holding IIR nominator
@@ -59,6 +65,7 @@ void iirFloat(double *denomCoeffs, double *nomCoeffs, double *input, double *out
 		output[j] = y;
 	}
 
+	// free memory
 	free((void *)reg);
 }
 

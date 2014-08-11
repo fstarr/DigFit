@@ -20,6 +20,11 @@ void firFloatInit(void)
  * Description: Apply FIR filter to input data values and store them
  *              in output array.
  *
+ *              y[n] = sum(x[n-k]*h[k], k=0..N)
+ *
+ *              x[] = input samples, y[] = output samples,
+ *              h[] = coeffs, N = filterLength
+ *
  * Params:      coeffs       - pointer to array holding FIR filter coefficients
  *              input        - pointer to array holding input data samples
  *              output       - pointer to array to which output samples will be
