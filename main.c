@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 		1.0, 0.1, 0.2, 0.3, 0.4
 	};
 
-	double nomCoeffs[FILTER_LEN+3] = {
+	double numCoeffs[FILTER_LEN+3] = {
 		0.1, 0.2, 0.3, 0.4, 0.3, 0.2, 0.1
 	};
 
@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 		0, 0, 0
 	};
 
-	iirFloat(denomCoeffs, nomCoeffs, iir_input, output, SAMPLES+2*(FILTER_LEN+3), FILTER_LEN+1, FILTER_LEN+3);
+	iirFloat(denomCoeffs, numCoeffs, iir_input, output, SAMPLES+2*(FILTER_LEN+3), FILTER_LEN+1, FILTER_LEN+3);
 
 	printf("*** IIR filter test ***\n");
 	printf("denomCoeffs[] = {\n");
@@ -70,9 +70,9 @@ int main(int argc, char *argv[])
 	}
 	printf("}\n\n");
 
-	printf("nomCoeffs[] = {\n");
+	printf("numCoeffs[] = {\n");
 	for(i=0; i<FILTER_LEN+3; i++) {
-		printf("%.4f\n", nomCoeffs[i]);
+		printf("%.4f\n", numCoeffs[i]);
 	}
 	printf("}\n\n");
 
