@@ -2,7 +2,7 @@
 
 Currently contains an FIR filter implementation based on
 [this blogpost](http://sestevenson.wordpress.com/implementation-of-fir-filtering-in-c-part-1/)
-as well as an IIR filter implementation.
+as well as an IIR filter implementation using floating point operations.
 
 File `main.c` contains code for a sample program demonstrating both FIR and IIR
 filter use.
