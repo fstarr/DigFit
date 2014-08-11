@@ -69,3 +69,39 @@ void iirFloat(double *denomCoeffs, double *numCoeffs, double *input, double *out
 	free((void *)reg);
 }
 
+void iirFloatStream(double *denomCoeffs, double *numCoeffs, double *hist_input, double *hist_output, double *input, double *output, int denomFilterLen, int numFilterLen)
+{
+	double denom = 0;
+	int j, k, N;
+	double y, *reg;
+
+	// determine degre of polynomial
+	N = (denomFilterLen > numFilterLen) ? (denomFilterLen-1) : (numFilterLen-1);
+
+	// perform calculations for ONE input sample
+	// shift input register forward and insert current value
+	for(k=numFilterLen; k>0; k--) {
+		hist_input[k] = hist_input[k-1];
+// 		printf( "hist_i = %.4f\n", hist_input[k] );
+	}
+
+	// denominator
+	for(k=1; k<=denomFilterLen; k++)
+		denom -= denomCoeffs[k] * hist_output[k-1];
+
+	// numerator
+	hist_input[0] = (*input);
+	y = 0;
+	for(k=0; k<=numFilterLen; k++)
+		y += numCoeffs[k] * hist_input[k];
+
+	(*output) = (y + denom);
+
+	// shift output register forward and insert current value
+	for(k=denomFilterLen; k>0; k--) {
+		hist_output[k] = hist_output[k-1];
+// 		printf( "hist_o = %.4f\n", hist_output[k] );
+	}
+
+	hist_output[0] = (y + denom);
+}

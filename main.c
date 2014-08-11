@@ -43,6 +43,8 @@ int main(int argc, char *argv[])
 	}
 	printf("}\n");
 
+	/*** IIR Filter Test ***/
+
 	double denomCoeffs[FILTER_LEN+1] = {
 		1.0, 0.1, 0.2, 0.3, 0.4
 	};
@@ -87,5 +89,19 @@ int main(int argc, char *argv[])
 		printf("%.4f\n", output[i]);
 	}
 	printf("}\n");
+
+	/*** IIR Stream Filter Test ***/
+	double in, out;
+	double hist_i[FILTER_LEN+3] = { 0.0 };
+	double hist_o[FILTER_LEN+1] = { 0.0 };
+
+	printf("input/hist_i/hist_o/output[] = {\n");
+	for(i=0; i<SAMPLES+2*(FILTER_LEN+3); i++) {
+		in = (i<20) ? (i+1) : 0;
+		iirFloatStream(denomCoeffs, numCoeffs, hist_i, hist_o, &in, &out, FILTER_LEN+1, FILTER_LEN+3);
+		printf("%.4f/%.4f/%.4f/%.4f\n", in, hist_i[1], hist_o[1], out);
+	}
+	printf("}\n");
+
 	return 0;
 }
