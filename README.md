@@ -12,4 +12,9 @@ Compile and run FIR/IIR filter sample program:
     $ gcc conv.c fir/fir_float.c iir/iir_float.c main.c -o main.out
     $ ./main.out
 
+Or using the quick & dirty makefile:
+
+    $ make
+    $ ./main.out
+
 Enjoy!

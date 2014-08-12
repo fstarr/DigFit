@@ -1,3 +1,12 @@
+/***********************************************/
+/* main.c                                      */
+/*                                             */
+/* Description: Sample program demonstrating   */
+/*              use of different filter        */
+/*              functions                      */
+/* Date:        2014-08-11                     */
+/* Author:      sfo (https://github.com/sfo)   */
+/***********************************************/
 #include <stdio.h>
 #include <stdlib.h>
 

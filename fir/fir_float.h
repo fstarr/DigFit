@@ -1,3 +1,10 @@
+/*************************************************/
+/* fir_float.h                                   */
+/*                                               */
+/* Description: FIR filter function declarations */
+/* Date:        2014-08-11                       */
+/* Author:      sfo (https://github.com/sfo)     */
+/*************************************************/
 #ifndef __FIR_FLOAT_H
 #define __FIR_FLOAT_H
 

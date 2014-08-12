@@ -1,3 +1,10 @@
+/***********************************************/
+/* iir_float.c                                 */
+/*                                             */
+/* Description: IIR filter implementation      */
+/* Date:        2014-08-11                     */
+/* Author:      sfo (https://github.com/sfo)   */
+/***********************************************/
 #include <stdlib.h>
 #include "iir_float.h"
 
@@ -93,7 +100,8 @@ void iirFloat(double *denomCoeffs, double *numCoeffs, double *input, double *out
  *                               Note: Memory must be allocated a-priori with
  *                               respect to numFilterLen):
  *
- *                                 double hist_input[numFilerLen] = {0.0};
+ *                                 double hist_input[numFilerLen] =
+ *                                 {0.0, ..., 0.0};
  *
  *              hist_output    - array containing history of output samples
  *
@@ -105,7 +113,8 @@ void iirFloat(double *denomCoeffs, double *numCoeffs, double *input, double *out
  *                               Note: Memory must be allocated a-priori with
  *                               respect to denomFilterLen):
  *
- *                                 double hist_output[denomFilerLen] = {0.0};
+ *                                 double hist_output[denomFilerLen] =
+ *                                 {0.0, ..., 0.0};
  *
  *              input          - pointer to variable holding input data sample
  *              output         - pointer to variable to which output data

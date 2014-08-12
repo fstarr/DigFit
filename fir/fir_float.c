@@ -1,3 +1,10 @@
+/***********************************************/
+/* fir_float.c                                 */
+/*                                             */
+/* Description: FIR filter implementation      */
+/* Date:        2014-08-11                     */
+/* Author:      sfo (https://github.com/sfo)   */
+/***********************************************/
 #include "fir_float.h"
 
 /*
