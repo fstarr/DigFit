@@ -1,11 +1,11 @@
 ## DigFit - Digital Filter Implementation / Library
 
-Currently contains an FIR filter implementation based on
-[this blogpost](http://sestevenson.wordpress.com/implementation-of-fir-filtering-in-c-part-1/)
-as well as an IIR filter implementation using floating point operations.
+Currently contains *two variants* of an *FIR filter implementation* (one based on
+[this blogpost](http://sestevenson.wordpress.com/implementation-of-fir-filtering-in-c-part-1/))
+as well as *IIR filter implementations* using floating point operations.
 
 File `main.c` contains code for a sample program demonstrating both FIR and IIR
-filter use.
+filter variants.
 
 Compile and run FIR/IIR filter sample program:
 
