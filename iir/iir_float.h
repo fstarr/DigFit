@@ -1,10 +1,10 @@
-/*************************************************/
-/* iir_float.h                                   */
-/*                                               */
-/* Description: IIR filter function declarations */
-/* Date:        2014-08-11                       */
-/* Author:      sfo (https://github.com/sfo)     */
-/*************************************************/
+/*
+ * iir_float.h
+ *
+ * Description: IIR filter function declarations
+ * Date:        2014-08-11
+ * Author:      sfo (https://github.com/sfo)
+ */
 #ifndef __IIR_FLOAT_H
 #define __IIR_FLOAT_H
 

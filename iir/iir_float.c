@@ -1,10 +1,10 @@
-/***********************************************/
-/* iir_float.c                                 */
-/*                                             */
-/* Description: IIR filter implementation      */
-/* Date:        2014-08-11                     */
-/* Author:      sfo (https://github.com/sfo)   */
-/***********************************************/
+/*
+ * iir_float.c
+ *
+ * Description: IIR filter implementation
+ * Date:        2014-08-11
+ * Author:      sfo (https://github.com/sfo)
+ */
 #include <stdlib.h>
 #include "iir_float.h"
 
@@ -129,28 +129,27 @@ void iirFloatStream(double *denomCoeffs, double *numCoeffs, double *hist_input, 
 {
 	double denom = 0;
 	int k;
-	double y;
+	double y = 0;
 
 	// perform calculations for ONE input sample
 	// shift input register forward and insert current value
-	for(k=numFilterLen; k>0; k--) {
+	for(k=numFilterLen-1; k>0; k--) {
 		hist_input[k] = hist_input[k-1];
 	}
 
 	// denominator
-	for(k=1; k<=denomFilterLen; k++)
+	for(k=1; k<denomFilterLen; k++)
 		denom -= denomCoeffs[k] * hist_output[k-1];
 
 	// numerator
 	hist_input[0] = (*input);
-	y = 0;
-	for(k=0; k<=numFilterLen; k++)
+	for(k=0; k<numFilterLen; k++)
 		y += numCoeffs[k] * hist_input[k];
 
 	(*output) = (y + denom);
 
 	// shift output register forward and insert current value
-	for(k=denomFilterLen; k>0; k--) {
+	for(k=denomFilterLen-1; k>0; k--) {
 		hist_output[k] = hist_output[k-1];
 	}
 

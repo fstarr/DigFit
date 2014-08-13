@@ -1,10 +1,10 @@
-/*************************************************/
-/* fir_float.h                                   */
-/*                                               */
-/* Description: FIR filter function declarations */
-/* Date:        2014-08-11                       */
-/* Author:      sfo (https://github.com/sfo)     */
-/*************************************************/
+/*
+ * fir_float.h
+ *
+ * Description: FIR filter function declarations
+ * Date:        2014-08-11
+ * Author:      sfo (https://github.com/sfo)
+ */
 #ifndef __FIR_FLOAT_H
 #define __FIR_FLOAT_H
 
@@ -21,6 +21,7 @@
 double fir_input_sample[FIR_BUFFER_LEN];
 
 void firFloatInit(void);
-void firFloat(double *coeffs, double *input, double *output, int length, int filterLength);
+void firFloat(double *coeffs, double *input, double *output, const int length, const int filterLength);
+void firFloatStream(const double *coeffs, double *hist_input, const double *input, double *output, const int filterLength);
 
 #endif //__FIR_FLOAT_H

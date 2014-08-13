@@ -1,12 +1,10 @@
-/***********************************************/
-/* main.c                                      */
-/*                                             */
-/* Description: Sample program demonstrating   */
-/*              use of different filter        */
-/*              functions                      */
-/* Date:        2014-08-11                     */
-/* Author:      sfo (https://github.com/sfo)   */
-/***********************************************/
+/*
+ * main.c
+ *
+ * Description: Sample program demonstrating use of different filter functions
+ * Date:        2014-08-11
+ * Author:      sfo (https://github.com/sfo)
+ */
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -29,6 +27,9 @@ int main(int argc, char *argv[])
 
 	double output[SAMPLES];
 
+	double fir_input_hist[FILTER_LEN] = {0.0, 0.0, 0.0, 0.0};
+	double fir_output_stream;
+
 	firFloatInit();
 	firFloat(coeffs, input, output, SAMPLES, FILTER_LEN);
 
@@ -50,7 +51,14 @@ int main(int argc, char *argv[])
 	for(i=0; i<SAMPLES; i++) {
 		printf("%.4f\n", output[i]);
 	}
-	printf("}\n");
+	printf("}\n\n");
+
+	printf("output_stream[] = {\n");
+	for(i=0; i<SAMPLES; i++) {
+		firFloatStream(coeffs, fir_input_hist, &input[i], &fir_output_stream, FILTER_LEN);
+		printf("%.4f\n", fir_output_stream);
+	}
+	printf("}\n\n");
 
 	/*** IIR Filter Test ***/
 
@@ -101,8 +109,8 @@ int main(int argc, char *argv[])
 
 	/*** IIR Stream Filter Test ***/
 	double in, out;
-	double hist_i[FILTER_LEN+3] = { 0.0 };
-	double hist_o[FILTER_LEN+1] = { 0.0 };
+	double hist_i[FILTER_LEN+3] = { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
+	double hist_o[FILTER_LEN+1] = { 0.0, 0.0, 0.0, 0.0, 0.0 };
 
 // 	printf("\ninput/hist_i/hist_o/output[] = {\n");
 	printf("\noutput_stream[] = {\n");
